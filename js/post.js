@@ -1,10 +1,14 @@
 // post.js
+
+// Wait for the DOM content to be fully loaded before executing the code
 document.addEventListener("DOMContentLoaded", function () {
+    // Retrieve postId from the URL query parameters
     const urlParams = new URLSearchParams(window.location.search);
     const postId = urlParams.get("postId");
 
     // Check if postId is null before making the request
     if (postId !== null) {
+        // Fetch post data by postId and display it
         fetchPostDataById(postId)
             .then((postData) => {
                 displayPostData(postData);
@@ -17,7 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+// Asynchronously fetch post data by postId
 async function fetchPostDataById(postId) {
+    // Construct the API URL for fetching post data
     const apiUrl = `https://blog-api-assignment.up.railway.app/posts/${postId}`;
 
     // Modify this section to fit your data structure
@@ -26,16 +32,19 @@ async function fetchPostDataById(postId) {
         headers: {
             "Content-Type": "application/json"
         },
-        // Add any additional headers or parameters needed
+       
     };
 
     try {
+        // Make the fetch request to the API
         const response = await fetch(apiUrl, data);
 
+        // Check if the request was successful
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
+        // Parse the response JSON and return the post data
         const postData = await response.json();
         return postData;
     } catch (error) {
@@ -43,12 +52,15 @@ async function fetchPostDataById(postId) {
     }
 }
 
+// Display post data on the page
 function displayPostData(postData) {
+    // Check if postData is undefined or null
     if (!postData) {
         console.error("Post data is undefined or null.");
         return;
     }
 
+    // Update document title and HTML elements with post data
     document.title = postData.title;
     document.getElementById("postTitle").innerText = postData.title;
     document.getElementById("postAuthor").innerText = "Author: " + postData.author;
@@ -57,6 +69,7 @@ function displayPostData(postData) {
     document.getElementById("postTags").innerText = "Tags: " + postData.tags.join(", ");
 }
 
+// Format date string to a more readable format
 function formatDate(dateString) {
     const options = {
         year: 'numeric',
