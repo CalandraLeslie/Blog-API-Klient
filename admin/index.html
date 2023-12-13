@@ -1,0 +1,33 @@
+<!-- admin/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+     
+    <a href="../index.html">Go to Blog</a>
+    <a href="create-post.html">Create New Post</a>
+
+    <!-- Table to display posts -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Tags</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="postTableBody"></tbody>
+    </table>
+    <script src="js/update-post.js"></script>
+    <script src="js/manage-posts.js"></script>
+</body>
+</html>
