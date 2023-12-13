@@ -16,6 +16,6 @@ https://blog-api-assignment.up.railway.app/posts and displays blog posts made by
 
 **The ability to update posts by clicking on the update button. After update then returns to the admin panel** (https://blog-api-assignment.up.railway.app/posts/)
 
-**The HTML is stylized by bootstrap due to it's ability to have a more cohesive and better quality than using CSS (trust me I tried)**
+**The HTML is stylized by bootstrap due to it's ability to have a more cohesive and better user friendly layout**
 
 **This application has comments on each file for easy tracking of how I was thinking in the process of coding**
