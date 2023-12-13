@@ -5,6 +5,8 @@ https://blog-api-assignment.up.railway.app/posts and displays blog posts made by
 
 **Other funcationaly: An ability to see more of a specific post when "read more" is clicked** (GET: https://blog-api-assignment.up.railway.app/posts/)
 
+**The ability to return either to the blog page or admin page from viewing the full blog entry** (I could not get them next to each other for some reason)
+
 **A link to an admin index** (in a seperate folder titled admin where you see posts title, names, and tags
 
 **The ability to create a post by using a seperate admin section that after this function is used it returns you back to the admin index** ( https://blog-api-assignment.up.railway.app/posts)
