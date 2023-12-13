@@ -16,6 +16,8 @@ https://blog-api-assignment.up.railway.app/posts and displays blog posts ( the f
 
 **The ability to update posts by clicking on the update button. After update then returns to the admin panel** (https://blog-api-assignment.up.railway.app/posts/)
 
+**Both the update and create areas have a multi select of tags by holding shift+left mouse click** 
+
 **The HTML is stylized by bootstrap due to it's ability to have a more cohesive and better user friendly layout**
 
 **This application has comments on each file for easy tracking of how I was thinking in the process of coding**
