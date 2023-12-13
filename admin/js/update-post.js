@@ -1,29 +1,24 @@
-// This event listener ensures that the DOM content is fully loaded before executing the code inside it.
+// Execute the following code when the DOM content is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch and display the post to be updated
     fetchPostData()
         .then((postData) => {
-            // Check if postData is available
+            // If post data is available, populate the form
             if (postData) {
-                // If available, populate the form with the retrieved data
                 populateForm(postData);
             } else {
-                // Log an error message if postData is null or undefined
                 console.error("Error: Post data is null or undefined.");
             }
         })
         .catch((error) => {
-            // Log an error message if there is an issue fetching post data
             console.error("Error fetching post data:", error);
         });
 
     // Add event listener for the update button
     const updateButton = document.getElementById("updateButton");
     if (updateButton) {
-        // If the update button is found, add an event listener for click events
         updateButton.addEventListener("click", updatePost);
     } else {
-        // Log an error message if the update button is not found
         console.error("Error: Update button not found.");
     }
 });
@@ -34,21 +29,21 @@ async function fetchPostData() {
     const urlParams = new URLSearchParams(window.location.search);
     const postId = urlParams.get('postId');
 
-    // Check if the post ID is missing from the URL
+    // If the post ID is missing, log an error and return null
     if (!postId) {
-        // Log an error message and return null or handle the error accordingly
         console.error("Error: Post ID is missing from the URL.");
+        // You can return a default value or handle the error accordingly
         return null;
     }
 
-    // Construct the API URL for fetching a specific post
+    // Construct the API URL for fetching post data
     const apiUrl = `https://blog-api-assignment.up.railway.app/posts/${postId}`;
 
     try {
-        // Make a fetch request to the API
+        // Fetch data from the API endpoint
         const response = await fetch(apiUrl);
 
-        // Check if the response is OK; otherwise, throw an error
+        // If the HTTP response is not OK, throw an error
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -57,7 +52,7 @@ async function fetchPostData() {
         const postData = await response.json();
         return postData;
     } catch (error) {
-        // Log an error message if there is an issue with the fetch operation and return null
+        // Log an error if there's an issue fetching post data
         console.error("Error fetching post data:", error);
         return null;
     }
@@ -65,52 +60,62 @@ async function fetchPostData() {
 
 // Function to populate the form fields with the retrieved post data
 function populateForm(postData) {
-    // Get the update post form element by its ID
+    // Get the form element by its ID
     const updatePostForm = document.getElementById("updatePostForm");
 
-    // Check if the form element is found
+    // If the form is found, populate its elements with post data
     if (updatePostForm) {
-        // Populate form fields with post data or empty strings if data is not available
         updatePostForm.elements["title"].value = postData.title || '';
         updatePostForm.elements["author"].value = postData.author || '';
         updatePostForm.elements["content"].value = postData.content || '';
-        updatePostForm.elements["tags"].value = Array.isArray(postData.tags) ? postData.tags.join(", ") : '';
+
+        // Clear existing selections in the tags select element
+        const tagsSelect = updatePostForm.elements["tags"];
+        Array.from(tagsSelect.options).forEach(option => {
+            option.selected = false;
+        });
+
+        // Select options based on the tags from the post data
+        Array.from(tagsSelect.options).forEach(option => {
+            if (postData.tags && postData.tags.includes(option.value)) {
+                option.selected = true;
+            }
+        });
     } else {
-        // Log an error message if the form element is not found
         console.error("Error: Update post form not found.");
     }
 }
 
-// Function to handle the update logic when the update button is clicked
+// Function to handle the update of a post
 function updatePost() {
-    // Get the update post form element by its ID
+    // Get the form element by its ID
     const updatePostForm = document.getElementById("updatePostForm");
 
-    // Check if the form element is found
+    // If the form is not found, log an error and return
     if (!updatePostForm) {
-        // Log an error message and return if the form element is not found
         console.error("Error: Update post form not found.");
         return;
     }
 
-    // Extract values from the form fields
+    // Extract values from form fields
     const title = updatePostForm.elements["title"].value;
     const author = updatePostForm.elements["author"].value;
     const content = updatePostForm.elements["content"].value;
-    const tags = updatePostForm.elements["tags"].value.split(",").map(tag => tag.trim());
+    
+    // Extract selected tags from the tags select element
+    const selectedTags = Array.from(updatePostForm.elements["tags"].selectedOptions).map(option => option.value);
 
     // Retrieve the post ID from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const postId = urlParams.get('postId');
 
-    // Check if the post ID is missing from the URL
+    // If the post ID is missing, log an error and return
     if (!postId) {
-        // Log an error message and return if the post ID is missing
         console.error("Error: Post ID is missing from the URL.");
         return;
     }
 
-    // Configure data for the PATCH request
+    // Prepare data for the PATCH request to update the post
     const data = {
         method: "PATCH",
         headers: {
@@ -120,14 +125,14 @@ function updatePost() {
             title: title,
             author: author,
             content: content,
-            tags: tags
+            tags: selectedTags
         })
     };
 
     // Make a fetch request to update the post
     fetch(`https://blog-api-assignment.up.railway.app/posts/${postId}`, data)
         .then(response => {
-            // Check if the response is OK; otherwise, throw an error
+            // If the HTTP response is not OK, throw an error
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -141,4 +146,7 @@ function updatePost() {
             window.location.href = 'index.html';
         })
         .catch(error => {
-            // Log an error message if there
+            // Handle any errors that occurred during the fetch operation
+            console.error("Error updating post:", error);
+        });
+}

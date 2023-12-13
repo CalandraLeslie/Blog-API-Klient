@@ -11,7 +11,8 @@ function createPost() {
     const content = createPostForm.elements["content"].value;
 
     // Extract tags from the tags input and trim whitespace
-    const tags = createPostForm.elements["tags"].value.split(",").map(tag => tag.trim());
+    const selectedTags = createPostForm.elements["tags"].selectedOptions;
+    const tags = Array.from(selectedTags).map(tagOption => tagOption.value);
 
     // Prepare data for the POST request to create the new post
     const data = {

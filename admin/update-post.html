@@ -1,37 +1,48 @@
 <!-- admin/update-post.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <!-- Set the character set for the document --><meta charset="UTF-8">
+    <!-- Include Bootstrap CSS from a CDN for styling -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Set the title of the page -->
     <title>Update Post</title>
 </head>
 
 <body class="bg-light">
+    <!-- Main container with top margin -->
     <div class="container mt-5">
+        <!-- Heading for updating a post -->
         <h1>Update Post</h1>
 
+        <!-- Form for updating a post -->
         <form id="updatePostForm">
+            <!-- Title input field -->
             <div class="mb-3">
                 <label for="title" class="form-label">Title:</label>
                 <input type="text" id="title" name="title" class="form-control" required>
             </div>
 
+            <!-- Author input field -->
             <div class="mb-3">
                 <label for="author" class="form-label">Author:</label>
                 <input type="text" id="author" name="author" class="form-control" required>
             </div>
 
+            <!-- Content textarea field -->
             <div class="mb-3">
                 <label for="content" class="form-label">Content:</label>
                 <textarea id="content" name="content" class="form-control" required></textarea>
             </div>
 
+            <!-- Tags selection field with multiple attribute -->
             <div class="mb-3">
                 <label for="tags" class="form-label">Tags:</label>
-                <select id="tags" name="tags" class="form-select">
+                <select id="tags" name="tags" class="form-select" multiple>
+                    <!-- Options for different tags -->
                     <option value="Football">Football</option>
                     <option value="England national team">England National Team</option>
                     <option value="Lionesses">Lionesses</option>
@@ -40,18 +51,21 @@
                 </select>
             </div>
 
+            <!-- Button to trigger the updatePost function -->
             <div class="mb-3">
                 <button type="button" id="updateButton" onclick="updatePost()" class="btn btn-primary">Update Post</button>
             </div>
         </form>
 
+        <!-- Link to navigate back to the Admin Dashboard -->
         <a href="index.html" class="btn btn-secondary mb-3">Back to Admin Dashboard</a>
     </div>
 
-    <!-- Bootstrap JS (Popper.js and Bootstrap JS) -->
+    <!-- Include Bootstrap JS dependencies (Popper.js and Bootstrap JS) from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
+    <!-- Include custom JavaScript for handling post updates -->
     <script src="js/update-post.js"></script>
 </body>
 
