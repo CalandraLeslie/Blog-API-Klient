@@ -26,14 +26,19 @@ async function fetchPostDataById(postId) {
     // Construct the API URL for fetching post data
     const apiUrl = `https://blog-api-assignment.up.railway.app/posts/${postId}`;
 
-    // Modify this section to fit your data structure
-    const data = {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        },
-       
-    };
+    
+    // Define an object named 'data' to store configuration options for a fetch request
+
+const data = {
+    // Specify the HTTP request method as 'GET' to retrieve data
+    method: "GET",
+
+    // Define headers to provide additional information about the request
+    headers: {
+        // Specify the content type of the request payload as JSON
+        "Content-Type": "application/json"
+    },
+};
 
     try {
         // Make the fetch request to the API

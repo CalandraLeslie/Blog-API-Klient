@@ -1,4 +1,4 @@
-// index.js
+
 
 // Wait for the DOM content to be fully loaded before executing the main logic
 document.addEventListener("DOMContentLoaded", function () {
@@ -17,13 +17,18 @@ async function fetchBlogPosts() {
     const apiUrl = "https://blog-api-assignment.up.railway.app/posts";
 
     // Define the configuration for the HTTP request
-    const data = {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        // Add any additional headers or parameters needed
-    };
+
+// Create an object named 'data' to store options for a fetch request
+const data = {
+    // Specify the HTTP request method as 'GET' to retrieve data
+    method: "GET",
+
+    // Define headers to provide additional information about the request
+    headers: {
+        // Specify the content type of the request payload as JSON
+        "Content-Type": "application/json"
+    },
+};
 
     try {
         // Send the HTTP request and await the response
