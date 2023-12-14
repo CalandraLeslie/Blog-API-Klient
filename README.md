@@ -7,7 +7,7 @@ https://blog-api-assignment.up.railway.app/posts and displays blog posts ( the f
 
 **The ability to return either to the blog page or admin page from viewing the full blog entry** 
 
-**A link to an admin index** (in a seperate folder titled admin where you see posts title, names, and tags)
+**A link to an admin index** (in a seperate folder titled admin where you see posts title, names, tags, deletion and editing of eblog emtry)
 
 **The ability to create a post by using a seperate admin section that after this function is used it returns you back to the admin index** ( https://blog-api-assignment.up.railway.app/posts)
 
