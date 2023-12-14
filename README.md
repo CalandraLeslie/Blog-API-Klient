@@ -16,7 +16,7 @@ https://blog-api-assignment.up.railway.app/posts and displays blog posts ( the f
 
 **The ability to update posts by clicking on the update button.** After update then returns to the admin panel (https://blog-api-assignment.up.railway.app/posts/)
 
-**Easy navigation** There is always links at the top of each page or an alert eindow so the user always allows the user to return to another page.
+**Easy navigation** There is always links on each page or an alert eindow so the user always allows the user to return to another page.
 
 **Both the update and create areas have a multi select of tags by holding shift+left mouse click** 
 
