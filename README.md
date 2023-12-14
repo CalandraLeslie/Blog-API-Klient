@@ -7,7 +7,7 @@ https://blog-api-assignment.up.railway.app/posts and displays blog posts ( the f
 
 **The ability to return either to the blog page or admin page from viewing the full blog entry** 
 
-**A link to an admin index** (in a seperate folder titled admin where you see posts title, names, tags, deletion and editing of eblog emtry)
+**A link to an admin index** (in a seperate folder titled admin where you see posts title, names, tags, deletion and editing of blog emtry)
 
 **The ability to create a post by using a seperate admin section** after this function is used it returns you back to the admin index There is also a "Regret" link that turns the user back to the admin panel instead of creating a new post ( https://blog-api-assignment.up.railway.app/posts)
 
@@ -15,6 +15,8 @@ https://blog-api-assignment.up.railway.app/posts and displays blog posts ( the f
 (https://blog-api-assignment.up.railway.app/posts/)
 
 **The ability to update posts by clicking on the update button.** After update then returns to the admin panel (https://blog-api-assignment.up.railway.app/posts/)
+
+**Easy navigation** There is always links at the top of each page or an alert eindow so the user always allows the user to return to another page.
 
 **Both the update and create areas have a multi select of tags by holding shift+left mouse click** 
 
