@@ -9,7 +9,7 @@ https://blog-api-assignment.up.railway.app/posts and displays blog posts ( the f
 
 **A link to an admin index** (in a seperate folder titled admin where you see posts title, names, tags, deletion and editing of eblog emtry)
 
-**The ability to create a post by using a seperate admin section that after this function is used it returns you back to the admin index** ( https://blog-api-assignment.up.railway.app/posts)
+**The ability to create a post by using a seperate admin section that after this function is used it returns you back to the admin index There is also a "Regret" link that turns the user back to the admin panel instead of creating a new post** ( https://blog-api-assignment.up.railway.app/posts)
 
 **The ability to delete a specific post from the admin panel with an alert asking the user if they "really want to delete" a apecific blog entry and then returns the user to the admin panel**
 (https://blog-api-assignment.up.railway.app/posts/)
