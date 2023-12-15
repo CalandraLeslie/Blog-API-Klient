@@ -18,7 +18,7 @@ https://blog-api-assignment.up.railway.app/posts and displays blog posts ( the f
 
 **Easy navigation** There is always links on each page or an alert eindow so the user always allows the user to return to another page.
 
-**Both the update and create areas have a multi select of tags by holding shift+left mouse click** 
+**Both the update and create areas have a multi select of tags by holding ctrl+left mouse click** 
 
 **The HTML is stylized by bootstrap due to it's ability to have a more cohesive and better user friendly layout**
 
